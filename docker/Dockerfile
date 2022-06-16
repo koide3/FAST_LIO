@@ -22,6 +22,7 @@ RUN git clone https://github.com/Livox-SDK/livox_ros_driver.git
 COPY . /root/catkin_ws/src/FAST_LIO
 
 WORKDIR /root/catkin_ws
+RUN /bin/bash -c '. /opt/ros/noetic/setup.bash; catkin_make -DCMAKE_BUILD_TYPE=Release' || true
 RUN /bin/bash -c '. /opt/ros/noetic/setup.bash; catkin_make -DCMAKE_BUILD_TYPE=Release'
 
 RUN sed -i "6i source \"/root/catkin_ws/devel/setup.bash\"" /ros_entrypoint.sh
