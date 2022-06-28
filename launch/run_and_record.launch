@@ -3,6 +3,6 @@
     <arg name="dst_path" />
 
     <include file="$(find fast_lio)/launch/mapping_ncm.launch" />
-    <node pkg="rosbag" type="record" name="bag_recorder" args="-O $(arg dst_path) /Odometry /tf /tf_static" if="false"/>
+    <node pkg="rosbag" type="record" name="bag_recorder" args="-O $(arg dst_path) /Odometry /tf /tf_static" if="true"/>
     <node pkg="rosbag" type="play" name="bag_player" args="--clock $(arg bag_path)" required="true"/>
 </launch>
